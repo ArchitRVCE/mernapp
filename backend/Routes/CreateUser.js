@@ -1,20 +1,52 @@
 const express = require('express')
 const router = express.Router()
+const { body, validatonResult, validationResult } = require('express-validator')
 
 const User = require('../models/User')
 
-router.post('/createuser',async (req,res)=>{
-    try{
-        await User.create({
-            name: req.body.name,
-            email: req.body.email,
-            location: req.body.location,
-            password: req.body.password
+router.post('/createuser', [
+    body('email','Check your email brother!').isEmail(),
+    body('password').isLength({ min: 5 })],
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        try {
+            await User.create({
+                name: req.body.name,
+                email: req.body.email,
+                location: req.body.location,
+                password: req.body.password
+            })
+            res.json({ success: true })
+        } catch (error) {
+            console.log(error)
+            res.json({ success: false })
+        }
+    })
+
+
+router.post('/loginuser',[body('email','Check your email brother').isEmail()],
+        async (req, res) => {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({ errors: errors.array() });
+            }
+            let email = req.body.email;
+            try {
+                let userData = await User.findOne({email})
+                if(!userData){
+                    return res.status(400).json({errors:'Try loggin with correct credentials'})
+                }
+
+                if(userData.password !== req.body.password ){
+                    return res.status(400).json({errors:'Try loggin with correct credentials'})     
+                }
+                return res.json({success:true})
+            } catch (error) {
+                console.log(error)
+                res.json({ success: false })
+            }
         })
-    res.json({success:true})
-    }catch(error){
-        console.log(error)
-        res.json({success:false})
-    }
-})
 module.exports = router;
