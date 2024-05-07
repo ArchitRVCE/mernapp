@@ -15,7 +15,7 @@ export default function Login() {
               password: credentials.password})}
           )
           const json = await response.json();
-          console.log(json);
+          console.log('json from backed',json);
           if(!json.success){
               alert("Enter a valid credential");
           }
