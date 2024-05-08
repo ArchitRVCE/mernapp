@@ -15,13 +15,13 @@ export default function Login() {
               password: credentials.password})}
           )
           const json = await response.json();
-          console.log('json from backed',json);
+          //console.log('json from backed',json);
           if(!json.success){
               alert("Enter a valid credential");
           }
           if(json.success){
             localStorage.setItem("authToken",json.authToken);
-            console.log("AuthToken",localStorage.getItem("authToken"))
+            //console.log("AuthToken",localStorage.getItem("authToken"))
             navigate("/");
         }
   }

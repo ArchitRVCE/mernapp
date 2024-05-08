@@ -21,7 +21,7 @@ export default function Home() {
             response = await response.json();
             setFoodItem(response[0])
             setFoodCat(response[1])
-            console.log(response[0], response[1]);
+            //console.log(response[0], response[1]);
         })
             .catch(error => console.log(error.message))
 
@@ -78,10 +78,11 @@ export default function Home() {
                                                 .map(filterItems => {
                                                     return (
                                                         <div key={filterItems._id} className='col-12 col-md-6 col-lg-3'>
-                                                            <Card foodName={filterItems.name}
-                                                                foodDesc={filterItems.description}
-                                                                options={filterItems.options}
-                                                                imgSrc={filterItems.img}></Card>
+                                                            <Card //foodName={filterItems.name}
+                                                                //foodDesc={filterItems.description}
+                                                                foodItem={filterItems}
+                                                                options={filterItems.options}>
+                                                                </Card>
                                                         </div>
                                                     )
                                                 }) :
