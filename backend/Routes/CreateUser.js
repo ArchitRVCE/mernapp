@@ -43,12 +43,12 @@ router.post('/loginuser',[body('email','Check your email brother').isEmail()],
             try {
                 let userData = await User.findOne({email})
                 if(!userData){
-                    return res.status(400).json({errors:'Try loggin with correct credentials'})
+                    return res.status(400).json({errors:'Incorrect Email address'})
                 }
                 let pwdCheck = await bcrypt.compare(req.body.password,userData.password);
                 if(!pwdCheck){
                 //if(userData.password !== req.body.password ){
-                    return res.status(400).json({errors:'Try loggin with correct credentials'})     
+                    return res.status(400).json({errors:'Incorrect Password'})     
                 }
                 const data = {
                     user:{

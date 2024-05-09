@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -24,11 +23,11 @@ export default function Signup() {
                 password: credentials.password})}
             )
             const json = await response.json();
-            //console.log(json);
             if(!json.success){
                 alert("Enter a valid credential");
+            }else{
+                navigate('/login');
             }
-            navigate('/login');
     }
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
