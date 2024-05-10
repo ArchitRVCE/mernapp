@@ -20,6 +20,7 @@ export default function Login() {
               alert("Enter a valid credential");
           }
           if(json.success){
+            localStorage.setItem("useremail",credentials.email)
             localStorage.setItem("authToken",json.authToken);
             //console.log("AuthToken",localStorage.getItem("authToken"))
             navigate("/");

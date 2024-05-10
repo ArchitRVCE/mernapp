@@ -12,6 +12,9 @@ const reducer = (state, action) => {
             
             newArr.splice(action.index, 1);
             return newArr
+        case 'DROP':
+            let emptyArr = [];
+            return emptyArr
         case "UPDATE":
             let arr = [...state]
             arr.find((food, index) => {
