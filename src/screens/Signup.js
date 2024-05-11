@@ -26,6 +26,7 @@ export default function Signup() {
             if(!json.success){
                 alert("Enter a valid credential");
             }else{
+                localStorage.setItem("authToken",json.authToken)
                 navigate('/login');
             }
     }

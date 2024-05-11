@@ -3,7 +3,8 @@ const router = express.Router()
 const OrderData = require('../models/Orders')
 router.post('/placeOrder', async (req, res) => {
     let data = req.body.order_data;
-    console.log('data incoming ', data);
+    console.log('frm bckend',data)
+    //console.log('data incoming ', data);
     await data.splice(0, 0, { Order_date: req.body.order_date });
     //if email is new i.e first order
     let eID = await OrderData.findOne({ 'email': req.body.email });

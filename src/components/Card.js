@@ -29,17 +29,14 @@ export default function Card(props) {
                 return
             }
             else if (food.size !== size) {
-                await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size, img: props.ImgSrc })
-                console.log("Size different so simply ADD one more to the list")
+                await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size, img: props.foodItem.img })
                 return
             }
             return
         }
 
-        await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
+        await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size,img: props.foodItem.img})
 
-
-        // setBtnEnable(true)
 
     }
     let finalPrice = qty * parseInt(options[size])
