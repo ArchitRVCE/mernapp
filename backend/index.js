@@ -5,8 +5,11 @@ import mongoDb from './db.js'
 import CreateUser from './Routes/CreateUser.js'
 import DisplayData from './Routes/DisplayData.js'
 import OrderData from './Routes/OrderData.js'
+import path from 'path'
 
 mongoDb()
+
+const __dirname = path.resolve();
 
 //for cors
 app.use((req,res,next)=>{
@@ -22,10 +25,11 @@ app.use('/api',CreateUser)
 app.use('/api',DisplayData)
 app.use('/api',OrderData)
 
-app.get('/',(req,res)=>{
-    res.send('Hello world')
-})
-
 app.listen(port,()=>{
     console.log(`My app listening on port http://localhost:${port}`)
+})
+
+app.use(express.static(path.join(__dirname,'/client/build')));
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'client','build','index.html'))
 })
