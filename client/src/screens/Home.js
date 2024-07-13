@@ -9,7 +9,7 @@ export default function Home() {
     const [searchKey,setSearchKey] = useState('');
 
     const loadData = async () => {
-        await fetch("http://localhost:5000/api/fetchData",
+        await fetch("/api/fetchData",
             {
                 method: "POST",
                 headers: {
