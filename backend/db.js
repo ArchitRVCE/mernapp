@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
-const mongoURI = 'mongodb+srv://RoyalFood:welcome123@royaldelicacy.hzad4rj.mongodb.net/MERNDB?retryWrites=true&w=majority&appName=royalDelicacy'
+import env from 'dotenv'
+env.config();
+const mongoURI = process.env.URI;
 const mongoDb = () => {
     mongoose.connect(mongoURI)
         .then(async result => {
