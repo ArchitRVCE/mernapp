@@ -15,7 +15,7 @@ export default function Signup() {
             location: credentials.geolocation,
             password: credentials.password
           })})*/
-          const response = await fetch("http://localhost:5000/api/createuser",{
+          const response = await fetch("/api/createuser",{
             method: "POST",
             headers:header,
             body: JSON.stringify({name: credentials.name,
