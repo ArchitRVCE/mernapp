@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken')
+import jwt from'jsonwebtoken'
 
 const localStorageWithAuth = (req,res,next)=>{
     const token = req.header('auth-token');
@@ -14,4 +14,4 @@ const localStorageWithAuth = (req,res,next)=>{
     }
     
 }
-module.exports = localStorageWithAuth
+export default localStorageWithAuth

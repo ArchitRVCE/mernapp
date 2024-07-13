@@ -13,7 +13,7 @@ export default function Navbar() {
         navigate('/Login')
     }
     return (<div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success custom_style" style={{}}>
             <div className="container-fluid">
                 <Link className="navbar-brand fs-1 fst-italic" to="/">Royal Delicacy</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

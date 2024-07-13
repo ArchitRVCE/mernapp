@@ -1,13 +1,13 @@
-const express = require('express')
+import express from 'express'
 const router = express.Router()
-const { body, validationResult } = require('express-validator')
+import { body, validationResult } from 'express-validator'
 
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
 const jwtSecret = "MyNameIsProdDeveloper#1"
-const bcrypt = require('bcrypt')
-const localStorageWithAuth = require('../Middleware/TokenAuth')
+import bcrypt from 'bcrypt'
+import localStorageWithAuth from '../Middleware/TokenAuth'
 
-const User = require('../models/User')
+import User from '../models/User'
 
 router.post('/createuser', [
     body('email', 'Check your email brother!').isEmail(),
@@ -87,4 +87,4 @@ router.post('/getuser', localStorageWithAuth, async (req, res) => {
 
     }
 })
-module.exports = router;
+export default router;

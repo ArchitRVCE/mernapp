@@ -40,13 +40,10 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="carousel-item active">
-                            <img src="https://source.unsplash.com/random/900×700/?pancake" className="d-block w-100" alt="..." style={{ "filter": "brightness(30%)" }} />
+                            <img src="/pancake.jpg" className="d-block w-100" alt="..." style={{ "filter": "brightness(30%)" }} />
                         </div>
                         <div className="carousel-item">
-                            <img src="https://source.unsplash.com/random/900×700/?cheese" className="d-block w-100" alt="..." style={{ "filter": "brightness(30%)" }} />
-                        </div>
-                        <div className="carousel-item">
-                            <img src="https://source.unsplash.com/random/900×700/?pizza" className="d-block w-100" alt="..." style={{ "filter": "brightness(30%)" }} />
+                            <img src="/pizza.webp" className="d-block w-100" alt="..." style={{ "filter": "brightness(30%)" }} />
                         </div>
                     </div>
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

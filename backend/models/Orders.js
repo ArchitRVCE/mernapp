@@ -1,8 +1,7 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const { Schema} = mongoose
 
-const OrderSchema = new Schema({
+const OrderSchema = new mongoose.Schema({
     email:{
         type: String,
         unique: true,
@@ -14,4 +13,5 @@ const OrderSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('orderData',OrderSchema)
+const orderData = mongoose.model('orderData',OrderSchema)
+export default orderData

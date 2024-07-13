@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import GoHome from '../components/GoHome';
 
 export default function Login() {
   let navigate = useNavigate();
@@ -15,7 +16,6 @@ export default function Login() {
               password: credentials.password})}
           )
           const json = await response.json();
-          //console.log('json from backed',json);
           if(!json.success){
               alert("Enter a valid credential");
           }
@@ -26,13 +26,15 @@ export default function Login() {
             navigate("/");
         }
   }
+
   const onChange = (e) => {
       setCredentials({ ...credentials, [e.target.name]: e.target.value })
   }
+  
   return (
     <>
       <div className='container'>
-                <form onSubmit={HandleSubmit}>
+                <form className="form_container" onSubmit={HandleSubmit}>
                 
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -45,6 +47,7 @@ export default function Login() {
                     
                     <button type="submit" className="m-3 btn btn-success">Submit</button>
                     <Link to="/Signup" className='m-3 btn btn-danger'>I'm a New User</Link>
+                    <GoHome/>
                 </form>
             </div>
     </>

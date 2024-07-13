@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
+import GoHome from '../components/GoHome'
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -36,7 +37,7 @@ export default function Signup() {
     return (
         <>
             <div className='container'>
-                <form onSubmit={HandleSubmit}>
+                <form className="form_container" onSubmit={HandleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label">Username</label>
                         <input type="text" className="form-control" name='name' value={credentials.name} onChange={onChange} />
@@ -56,6 +57,7 @@ export default function Signup() {
                     </div>
                     <button type="submit" className="m-3 btn btn-success">Submit</button>
                     <Link to="/Login" className='m-3 btn btn-danger'>Already a User?</Link>
+                    <GoHome/>
                 </form>
             </div>
         </>

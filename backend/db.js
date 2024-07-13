@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 const mongoURI = 'mongodb+srv://RoyalFood:welcome123@royaldelicacy.hzad4rj.mongodb.net/MERNDB?retryWrites=true&w=majority&appName=royalDelicacy'
 const mongoDb = () => {
     mongoose.connect(mongoURI)
@@ -19,4 +19,4 @@ const mongoDb = () => {
         .catch((error) => console.log(error))
 }
 
-module.exports = mongoDb
+export default mongoDb

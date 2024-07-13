@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express'
 const app = express()
 const port = 5000
-const mongoDb = require('./db')
+import mongoDb from './db'
 mongoDb()
 
 //for cors

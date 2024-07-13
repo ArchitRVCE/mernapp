@@ -1,6 +1,6 @@
-const express = require('express')
+import express from 'express'
 const router = express.Router()
-const OrderData = require('../models/Orders')
+import OrderData from '../models/Orders'
 router.post('/placeOrder', async (req, res) => {
     let data = req.body.order_data;
     console.log('frm bckend',data)
@@ -33,4 +33,4 @@ router.post("/getMyOrders", async (req, res) => {
         })
         .catch(error => res.status(400).send("Server error",error.message))
 })
-module.exports = router
+export default router

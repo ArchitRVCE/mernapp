@@ -23,6 +23,17 @@
   color: #61dafb;
 }
 
+.custom_style{
+    position: fixed !important;
+    z-index: 100;
+    width: 100%;
+}
+
+.form_container{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
