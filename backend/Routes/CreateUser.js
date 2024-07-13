@@ -1,9 +1,10 @@
 import express from 'express'
 const router = express.Router()
 import { body, validationResult } from 'express-validator'
-
+import env from 'dotenv'
+env.config()
 import jwt from 'jsonwebtoken'
-const jwtSecret = "MyNameIsProdDeveloper#1"
+const jwtSecret = process.env.JWT_SCERET
 import bcrypt from 'bcrypt'
 import localStorageWithAuth from '../Middleware/TokenAuth.js'
 
