@@ -1,7 +1,11 @@
 import express from 'express'
 const app = express()
 const port = 5000
-import mongoDb from './db'
+import mongoDb from './db.js'
+import CreateUser from './Routes/CreateUser.js'
+import DisplayData from './Routes/DisplayData.js'
+import OrderData from './Routes/OrderData.js'
+
 mongoDb()
 
 //for cors
@@ -14,9 +18,9 @@ app.use((req,res,next)=>{
     next();
 })
 app.use(express.json());
-app.use('/api',require('./Routes/CreateUser'))
-app.use('/api',require('./Routes/DisplayData'))
-app.use('/api',require('./Routes/OrderData'))
+app.use('/api',CreateUser)
+app.use('/api',DisplayData)
+app.use('/api',OrderData)
 
 app.get('/',(req,res)=>{
     res.send('Hello world')

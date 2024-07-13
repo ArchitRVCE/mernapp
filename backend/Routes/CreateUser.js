@@ -5,9 +5,9 @@ import { body, validationResult } from 'express-validator'
 import jwt from 'jsonwebtoken'
 const jwtSecret = "MyNameIsProdDeveloper#1"
 import bcrypt from 'bcrypt'
-import localStorageWithAuth from '../Middleware/TokenAuth'
+import localStorageWithAuth from '../Middleware/TokenAuth.js'
 
-import User from '../models/User'
+import User from '../models/User.js'
 
 router.post('/createuser', [
     body('email', 'Check your email brother!').isEmail(),

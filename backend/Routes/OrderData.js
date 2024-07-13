@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router()
-import OrderData from '../models/Orders'
+import OrderData from '../models/Orders.js'
 router.post('/placeOrder', async (req, res) => {
     let data = req.body.order_data;
     console.log('frm bckend',data)
